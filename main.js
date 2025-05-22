@@ -10,18 +10,24 @@ async function fetchNews(query) {
 }
 
 function findData(articles) {
-  const cardsContainer = document.getElementById(`cards-container`);
-  const newsCardTemplate = document.getElementById(`template-news-card`);
+  if (!articles || !Array.isArray(articles)) {
+    document.getElementById("cards-container").innerHTML = `<p style="color:red;">No articles found.</p>`;
+    return;
+  }
+
+  const cardsContainer = document.getElementById("cards-container");
+  const newsCardTemplate = document.getElementById("template-news-card");
 
   cardsContainer.innerHTML = "";
 
-  articles.forEach((articles) => {
-    if (!articles.urlToImage) return;
+  articles.forEach((article) => {
+    if (!article.urlToImage) return;
     const cardClone = newsCardTemplate.content.cloneNode(true);
-    fillDataInCard(cardClone, articles);
+    fillDataInCard(cardClone, article);
     cardsContainer.appendChild(cardClone);
   });
 }
+
 
 function fillDataInCard(cardClone, articles) {
   const newsImg = cardClone.querySelector(`#news-img`);
@@ -56,7 +62,7 @@ const searchButton = document.getElementById(`search-button`);
 
 const searchText = document.getElementById(`search-text`);
 
-searchButton.addEventListener("chick", () => {
+searchButton.addEventListener("click", () => {
   const query = searchText.value;
   if (!query) return;
   fetchNews(query);
