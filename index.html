@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Newstrum</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="main-nav container flex">
+        <a href="#" class="company-logo">
+          <h1>
+            News
+            <span class="logo-news">trum</span>
+          </h1>
+        </a>
+        <div class="nav-link">
+          <ul class="flex">
+            <li
+              class="hover-link nav-item"
+              id="ipl"
+              onclick="onNavItemClick(`ipl`)"
+            >
+              IPL
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="finance"
+              onclick="onNavItemClick(`finance`)"
+            >
+              FINANCE
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="politics"
+              onclick="onNavItemClick(`politics`)"
+            >
+              POLITICS
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="technology"
+              onclick="onNavItemClick(`technology`)"
+            >
+              TECHNOLOGY
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="breakingNews"
+              onclick="onNavItemClick(`breakingNews`)"
+            >
+              Breaking News
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="health"
+              onclick="onNavItemClick(`health`)"
+            >
+              Health
+            </li>
+            <li
+              class="hover-link nav-item"
+              id="education"
+              onclick="onNavItemClick(`education`)"
+            >
+              Education
+            </li>
+          </ul>
+        </div>
+        <div class="search-bar flex">
+          <input
+            id="search-text"
+            type="text"
+            class="news-iput"
+            placeholder="e.g. science"
+          />
+          <button id="search-button" class="search-button">search</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="cards-container container flex" id="cards-container"></div>
+    </main>
+
+    <template id="template-news-card">
+      <div class="card">
+        <div class="card-header">
+          <img
+            src="https://placehold.co/400x200"
+            alt="news-image"
+            id="news-img"
+          />
+        </div>
+        <div class="card-content">
+          <h3 id="news-title">this is a title</h3>
+          <h6 class="news-source" id="news-source">end gadget26/03/2023</h6>
+          <p class="news-desc" id="news-desc">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+            veritatis nisi soluta quo sequi ducimus dolore laboriosam labore.
+            Libero, quo.
+          </p>
+        </div>
+      </div>
+    </template>
+
+    <script src="main.js"></script>
+  </body>
+</html>
